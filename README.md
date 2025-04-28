@@ -46,3 +46,6 @@ If you are running Visual Studio 2022 with LocalDB already installed, you should
 
 You can use the swagger UI to create a customer and then login. At this point, you will get a JWT as response. Use for example Postman to call endpoints with
 an Authorization header with the token as Bearer (and expected body in Json).
+
+![image](https://github.com/user-attachments/assets/66b8bf72-8abc-4ebe-80d6-e5e7dcd8931f)
+
