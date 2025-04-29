@@ -46,9 +46,9 @@ namespace API.Controllers
         }
 
         /// <summary>
-        /// Creating a new JWT if the provided token is still valid.
+        /// Creating a new JWT if the provided refresh token is still valid.
         /// </summary>
-        /// <param name="request">Request containing the current token.</param>
+        /// <param name="request">Request containing the current refresh token.</param>
         /// <returns>Object containing the new access token and refresh token.</returns>
         [HttpPost("Refresh")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -56,7 +56,7 @@ namespace API.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequest request, CancellationToken cancellationToken)
         {
-            var user = await _crayonReadFacade.GetCustomerByTokenAsync(request.Token, cancellationToken);
+            var user = await _crayonReadFacade.GetCustomerByTokenAsync(request.RefreshToken, cancellationToken);
             if (user is null || user.RefreshTokenExpiry < DateTime.UtcNow)
                 return Unauthorized();
 
