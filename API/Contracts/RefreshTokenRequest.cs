@@ -5,6 +5,6 @@ namespace API.Contracts
     public class RefreshTokenRequest
     {
         [Required]
-        public string Token { get; set; }
+        public string RefreshToken { get; set; }
     }
 }
